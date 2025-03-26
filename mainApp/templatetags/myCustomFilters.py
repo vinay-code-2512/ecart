@@ -31,6 +31,7 @@ def orderStatusFilter(Request,status):
     else:
         return 'Delivered'
     
+    
 @register.filter(name="checkForRepayment")
 def checkForRepayment(Request,checkout):
     if(checkout.paymentStatus==1 and checkout.paymentMode==2):
