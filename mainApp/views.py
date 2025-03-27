@@ -356,7 +356,7 @@ def placeOrderPage(Request):
                 "api_key": RAZORPAY_API_KEY,
                 "order_id":paymentId,
                 "User":buyer,
-                "checkid":-1
+                "checkid":-9999999999
             })  
     else:
         return HttpResponseRedirect("/checkout/")    
@@ -364,7 +364,7 @@ def placeOrderPage(Request):
 @login_required(login_url="/login/")
 def paymentSuccessPage(Request,rppid,rpoid,rpsid,checkid):
     buyer = Buyer.objects.get(username=Request.user)
-    if(checkid==-1):
+    if(checkid==-9999999999):
         check = Checkout.objects.filter(buyer=buyer)
         check=check[::-1]
         check=check[0]
