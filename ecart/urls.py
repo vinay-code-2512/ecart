@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from mainApp import views as mainApp
 from django.conf import settings
 from django.conf.urls.static import static
@@ -31,5 +31,7 @@ urlpatterns = [
     path("forget-password-1/",mainApp.forgetPassword1Page),
     path("forget-password-2/",mainApp.forgetPassword2Page),
     path("forget-password-3/",mainApp.forgetPassword3Page),
+    path("api/", include("api.urls")),
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

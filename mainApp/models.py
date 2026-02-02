@@ -70,8 +70,6 @@ class Wishlist(models.Model):
         return str(self.id) + " / " + self.buyer.username + " / " + self.product.name  
 
 
-
-
 paymentMode = ((1,"COD"),(2,"Net Banking"))
 paymentStatus = ((1,"Pending"),(2,"Done"))
 orderStatus = ((1,"Order Placed"),(2,"Ready to Dispatch"),(3,"Dispatched"),(4,"Out for Delivery"),(5,"Delivered"))
@@ -102,7 +100,7 @@ class CheckoutProducts(models.Model):
         return str(self.id) + " / " + str(self.checkout.id)+ " / " + self.product.name   
 
 
-contacStatus = ((1,"Active"),(2,"Done"))
+contactStatus = ((1,"Active"),(2,"Done"))
 class Contact(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
@@ -110,7 +108,7 @@ class Contact(models.Model):
     phone = models.CharField(max_length=35)
     subject = models.CharField(max_length=200)
     message = models.TextField()
-    status = models.IntegerField(choices=contacStatus, default=1)
+    status = models.IntegerField(choices=contactStatus, default=1)
     date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
